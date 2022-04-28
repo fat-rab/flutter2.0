@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 
 import '../tabs.dart';
 
-final Map routes = {
+final Map<String, Function> routes = {
   '/': (context) => const Tabs(),
 };
 
 onGenerateRoute() {
   return (RouteSettings settings) {
     final routeName = settings.name;
-    final Function pageContentBuilder = routes[routeName];
+    final pageContentBuilder = routes[routeName];
     if (pageContentBuilder != null) {
       if (settings.arguments != null) {
         final route = MaterialPageRoute(
