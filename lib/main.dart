@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:myapp/pages/errorPages/404.dart';
 import '../router/index.dart';
 
 void main() {
@@ -18,6 +19,11 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false, //去除右上角DEBUG 标记
       initialRoute: "/",
       onGenerateRoute: onGenerateRoute(),
+      onUnknownRoute: (RouteSettings routeSettings){
+        return MaterialPageRoute(builder: (context){
+          return const ErrorPage();
+        });
+      },
     );
   }
 }
