@@ -22,7 +22,11 @@ dev_dependencies:
 
 flutter:
 
-  uses-material-design: true # 确保您的应用程序中包含Material Icons字体，以便您可以使用material Icons类中的图标。
+  uses-material-design: true # 使用 Material Design图标
   assets:
     - images/hun2.jpg
     - assets/test.json
+  fonts:
+    - family: myIcon
+      fonts:
+        - asset: assets/icon-font/iconfont.ttf

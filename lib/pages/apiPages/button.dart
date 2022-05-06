@@ -8,7 +8,7 @@ class ButtonApi extends StatefulWidget {
 }
 
 class _ButtonApiState extends State<ButtonApi> {
-  List<bool> _boolList = [false, false, true];
+  final List<bool> _boolList = [false, false, true];
 
   @override
   Widget build(BuildContext context) {
@@ -64,14 +64,18 @@ class _ButtonApiState extends State<ButtonApi> {
             onPressed: () {},
           ),
           // 悬浮按钮
+          // FloatingActionButton的heroTag是一个默认值，不能出现重复
+          // 所以当一个页面中出现多个FloatingActionButton时，需要手动定义heroTag
           FloatingActionButton(child: const Icon(Icons.add), onPressed: () {}),
           FloatingActionButton.extended(
               icon: const Icon(Icons.add),
               label: const Text("创建"),
+              heroTag: "add-1",
               onPressed: () {})
         ],
       ),
       floatingActionButton: FloatingActionButton(
+        heroTag: "back",
         child: const Text('返回'),
         onPressed: () {
           Navigator.pop(context);
