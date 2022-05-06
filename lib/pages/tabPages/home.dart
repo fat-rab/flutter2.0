@@ -12,6 +12,7 @@ class _HomeState extends State<Home> {
     {"title": "text", "routeName": "/textApi"},
     {"title": "button", "routeName": "/buttonApi"},
     {"title": "image", "routeName": "/imageApi"},
+    {"title": "form", "routeName": "/formApi"},
   ];
 
   Widget _getPages(context, index) {

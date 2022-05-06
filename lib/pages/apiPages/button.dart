@@ -22,6 +22,7 @@ class _ButtonApiState extends State<ButtonApi> {
           ),
           ElevatedButton(
             style: ButtonStyle(
+                padding: MaterialStateProperty.all(const EdgeInsets.all(30)),
                 textStyle: MaterialStateProperty.all(
                     const TextStyle(fontSize: 20)), //字体大小
                 foregroundColor:
