@@ -67,12 +67,27 @@ class _FormDemoState extends State<FormDemo> {
             child: ElevatedButton(
               onPressed: () {
                 if ((_formKey.currentState as FormState).validate()) {
-                  //print("验证通过");
+                  print("验证通过1");
                 }
               },
-              child: const Text("登录"),
+              child: const Text("登录1"),
             ),
-          )
+          ),
+          SizedBox(
+            width: double.infinity,
+            // 通过Builder获取ElevatedButton所在widget树的真正context，
+            // 如果直接使用Form.of(context)的话，获取的是_FormDemoState的context
+            child: Builder(builder: (context) {
+              return ElevatedButton(
+                onPressed: () {
+                  if (Form.of(context)!.validate()) {
+                    print("验证通过2");
+                  }
+                },
+                child: const Text("登录2"),
+              );
+            }),
+          ),
         ],
       ),
     );
