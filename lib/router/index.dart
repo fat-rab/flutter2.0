@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:myapp/pages/apiPages/layout.dart';
+import '../pages/apiPages/layout.dart';
 import '../pages/apiPages/button.dart';
 import '../pages/apiPages/container.dart';
 import '../pages/apiPages/form.dart';
 import '../pages/apiPages/image.dart';
 import '../pages/apiPages/progress.dart';
+import '../pages/apiPages/scroll/index.dart';
 import '../pages/apiPages/text.dart';
 import '../tabs.dart';
 
@@ -17,6 +18,7 @@ final Map<String, Function> routes = {
   "/progressApi": (context) => const ProgressApi(),
   "/layoutApi": (context) => const LayOutApi(),
   "/containerApi": (context) => const ContainerApi(),
+  "/scrollApi": (context) => const ScrollApi()
   // '/statelessRoutePage': (context, {arguments}) =>
   //     StatelessRoutePage(arguments: arguments), //无状态组件传参
   // '/statefulRoute': (context, {arguments}) => //有状态组件传参

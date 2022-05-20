@@ -16,6 +16,7 @@ class _HomeState extends State<Home> {
     {"title": "progress", "routeName": "/progressApi"},
     {"title": "layout", "routeName": "/layoutApi"},
     {"title": "container", "routeName": "/containerApi"},
+    {"title": "scroll", "routeName": "/scrollApi"},
   ];
 
   Widget _getPages(context, index) {
@@ -29,6 +30,11 @@ class _HomeState extends State<Home> {
       onPressed: () {
         Navigator.pushNamed(context, _pageList[index]["routeName"]);
       },
+      // 路由传参
+      // onPressed: () {
+      //   Navigator.pushNamed(context, _pageList[index]["routeName"],
+      //       arguments: ScreenArguments(18, title: "123"));
+      // },
     );
   }
 
@@ -42,4 +48,13 @@ class _HomeState extends State<Home> {
       itemCount: _pageList.length,
     );
   }
+}
+
+// 定义路由传参的类型
+class ScreenArguments {
+  final String title;
+  final int age;
+
+  //使用{}包裹是命名参数
+  ScreenArguments(this.age, {required this.title});
 }
