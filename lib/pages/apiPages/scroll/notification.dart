@@ -16,6 +16,7 @@ class _NotificationListenerApiState extends State<NotificationListenerApi> {
     return Scaffold(
       appBar: AppBar(title: const Text('NotificationListenerApi')),
       body: Scrollbar(
+        // 滚动组件在滚动的时候会发送ScrollNotification类型的通知，所以父组件可以通过NotificationListener组件监听
         child: NotificationListener<ScrollNotification>(
           onNotification: (ScrollNotification scrollNotification) {
             // pixels：当前滚动位置。
