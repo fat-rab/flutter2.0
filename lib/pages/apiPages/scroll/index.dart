@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'sliverAppBar.dart';
+import 'nestedScrollView.dart';
+import 'tabView.dart';
+import 'pageView.dart';
 import 'animatedList.dart';
 import 'controller.dart';
 import 'gridView.dart';
@@ -6,6 +10,7 @@ import 'infiniteListView.dart';
 import 'notification.dart';
 import 'singleChildScrollView.dart';
 import 'listView.dart';
+import 'customScrollView.dart';
 
 class ScrollApi extends StatefulWidget {
   const ScrollApi({Key? key}) : super(key: key);
@@ -29,6 +34,11 @@ class _ScrollApiState extends State<ScrollApi> {
     },
     {"title": "AnimatedListApi", "route": const AnimatedListApi()},
     {"title": "GridViewApi", "route": const GridViewApi()},
+    {"title": "PageViewApi", "route": const PageViewApi()},
+    {"title": "TabViewApi", "route": const TabViewApi()},
+    {"title": "CustomScrollViewApi", "route": const CustomScrollViewApi()},
+    {"title": "NestedScrollViewApi", "route": const NestedScrollViewApi()},
+    {"title": "SliverAppBarApi", "route": const SliverAppBarApi()},
   ];
 
   Widget _getPages(context, index) {
