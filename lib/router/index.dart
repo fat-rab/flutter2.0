@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
+import '../pages/apiPages/inheritedWidget.dart';
 import '../pages/apiPages/layout.dart';
 import '../pages/apiPages/button.dart';
 import '../pages/apiPages/container.dart';
 import '../pages/apiPages/form.dart';
 import '../pages/apiPages/image.dart';
 import '../pages/apiPages/progress.dart';
+import '../pages/apiPages/provider.dart';
 import '../pages/apiPages/scroll/index.dart';
 import '../pages/apiPages/text.dart';
+import '../pages/apiPages/willPopScope.dart';
 import '../tabs.dart';
 
 final Map<String, Function> routes = {
@@ -18,7 +21,10 @@ final Map<String, Function> routes = {
   "/progressApi": (context) => const ProgressApi(),
   "/layoutApi": (context) => const LayOutApi(),
   "/containerApi": (context) => const ContainerApi(),
-  "/scrollApi": (context) => const ScrollApi()
+  "/scrollApi": (context) => const ScrollApi(),
+  "/willPopScopeApi": (context) => const WillPopScopeApi(),
+  "/inheritedWidgetAPi": (context) => const InheritedWidgetAPi(),
+  "/providerApi": (context) => const ProviderApi(),
   // '/statelessRoutePage': (context, {arguments}) =>
   //     StatelessRoutePage(arguments: arguments), //无状态组件传参
   // '/statefulRoute': (context, {arguments}) => //有状态组件传参

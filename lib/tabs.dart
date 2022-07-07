@@ -27,6 +27,7 @@ class _TabsState extends State<Tabs> {
                   Scaffold.of(context).openDrawer();
                 });
           }),
+          //右上角按钮
           actions: [
             IconButton(onPressed: () {}, icon: const Icon(Icons.share)),
             Builder(builder: (context) {
@@ -36,7 +37,7 @@ class _TabsState extends State<Tabs> {
                   },
                   icon: const Icon(Icons.menu));
             })
-          ], //右上角按钮
+          ],
         ),
         //左侧drawer 如果AppBar不设置leading,左上角会自动出现按钮打开drawer
         drawer: const MyDrawer(),

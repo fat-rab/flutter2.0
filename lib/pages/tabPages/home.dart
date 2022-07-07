@@ -17,6 +17,9 @@ class _HomeState extends State<Home> {
     {"title": "layout", "routeName": "/layoutApi"},
     {"title": "container", "routeName": "/containerApi"},
     {"title": "scroll", "routeName": "/scrollApi"},
+    {"title": "willPopScope", "routeName": "/willPopScopeApi"},
+    {"title": "inheritedWidget", "routeName": "/inheritedWidgetAPi"},
+    {"title": "providerApi", "routeName": "/providerApi"},
   ];
 
   Widget _getPages(context, index) {
