@@ -20,6 +20,11 @@ class _HomeState extends State<Home> {
     {"title": "willPopScope", "routeName": "/willPopScopeApi"},
     {"title": "inheritedWidget", "routeName": "/inheritedWidgetAPi"},
     {"title": "providerApi", "routeName": "/providerApi"},
+    {"title": "colorApi", "routeName": "/colorApi"},
+    {"title": "themeApi", "routeName": "/themeApi"},
+    {"title": "valueListenableApi", "routeName": "/valueListenableApi"},
+    {"title": "asyncBuilderApi", "routeName": "/asyncBuilderApi"},
+    {"title": "dialogApi", "routeName": "/dialogApi"},
   ];
 
   Widget _getPages(context, index) {
