@@ -44,6 +44,7 @@ class LayoutBuilderWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // 通过 LayoutBuilder，我们可以在布局过程中拿到父组件传递的约束信息
     return LayoutBuilder(
         builder: (BuildContext context, BoxConstraints constraints) {
       if (constraints.maxWidth < 200) {

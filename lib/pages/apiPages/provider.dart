@@ -23,8 +23,6 @@ class _ProviderApiState extends State<ProviderApi> {
           children: [
             ChangeNotifierProvider(
               create: (context) => CartModel(),
-              // Consumer的唯一必须参数是builder,当ChangeNotifier发生变化的时候（notifyListeners被调用的时候）
-              // 所有相关的Consumer中的builder都会被调用
               child: const MyPage(),
             )
           ],
@@ -40,10 +38,12 @@ class MyPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     //  该方法由provider注入，直接返回 T，不会监听改变
-    var cart = context.read<CartModel>();
+    // var cart = context.read<CartModel>();
     return Column(
       children: [
         // Consumer必须放在ChangeNotifierProvider下面
+        // Consumer的唯一必须参数是builder,当ChangeNotifier发生变化的时候（notifyListeners被调用的时候）
+        // 所有相关的Consumer中的builder都会被调用
         Consumer<CartModel>(
           builder: (context, cart, child) {
             return Column(
@@ -59,16 +59,17 @@ class MyPage extends StatelessWidget {
         ),
         ElevatedButton(
             onPressed: () {
-              cart.add(Item(1, 1));
+              // cart.add(Item(1, 1));
+              // 如果不需要数据渲染ui但是还是需要访问数据，如果使用 Consumer<CartModel>的话有点浪费
+              // 可以使用provider.of来访问并且设置listen为false,这样当notifyListeners，该widget并不会被重构
+              // 效果与context.read<T>类似
+              Provider.of<CartModel>(context, listen: false).add(Item(1, 1));
             },
             child: const Text('add')),
         ElevatedButton.icon(
             onPressed: () {
-              // 如果不需要数据渲染ui但是还是需要访问数据，可以使用provider.of来访问
-              // 并且设置listen为false,这样当notifyListeners，该widget并不会被重构
-              // 效果与context.read<T>蕾丝
-              // Provider.of<CartModel>(context, listen: false).removeAll();
-              cart.removeAll();
+              // cart.removeAll();
+              Provider.of<CartModel>(context, listen: false).removeAll();
             },
             icon: const Icon(Icons.clear),
             label: const Text('清空'))
@@ -102,64 +103,5 @@ class CartModel extends ChangeNotifier {
   void removeAll() {
     _items.clear();
     notifyListeners();
-  }
-}
-
-class MyProviderApi extends StatelessWidget {
-  const MyProviderApi({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('MyProviderApi'),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            const Text('You have pushed the button this many times:'),
-            // Consumer looks for an ancestor Provider widget
-            // and retrieves its model (Counter, in this case).
-            // Then it uses that model to build widgets, and will trigger
-            // rebuilds if the model is updated.
-            Consumer<CartModel>(
-              builder: (context, cart, child) =>
-                  Text(
-                    '${cart.totalPrice}',
-                    style: Theme
-                        .of(context)
-                        .textTheme
-                        .headline4,
-                  ),
-            ),
-          ],
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          // You can access your providers anywhere you have access
-          // to the context. One way is to use Provider.of<Counter>(context).
-          //
-          // The provider package also defines extension methods on context
-          // itself. You can call context.watch<Counter>() in a build method
-          // of any widget to access the current state of Counter, and to ask
-          // Flutter to rebuild your widget anytime Counter changes.
-          //
-          // You can't use context.watch() outside build methods, because that
-          // often leads to subtle bugs. Instead, you should use
-          // context.read<Counter>(), which gets the current state
-          // but doesn't ask Flutter for future rebuilds.
-          //
-          // Since we're in a callback that will be called whenever the user
-          // taps the FloatingActionButton, we are not in the build method here.
-          // We should use context.read().
-          var counter = context.read<CartModel>();
-          counter.add(Item(1, 1));
-        },
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ),
-    );
   }
 }

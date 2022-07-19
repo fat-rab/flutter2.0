@@ -25,6 +25,16 @@ class _HomeState extends State<Home> {
     {"title": "valueListenableApi", "routeName": "/valueListenableApi"},
     {"title": "asyncBuilderApi", "routeName": "/asyncBuilderApi"},
     {"title": "dialogApi", "routeName": "/dialogApi"},
+    {"title": "pointerEventApi", "routeName": "/pointerEventApi"},
+    {"title": "gestureApi", "routeName": "/gestureApi"},
+    {"title": "eventBusApi", "routeName": "/eventBusApi"},
+    {"title": "customNotificationApi", "routeName": "/customNotificationApi"},
+    {"title": "baseAnimationApi", "routeName": "/baseAnimationApi"},
+    {"title": "heroAnimationApiA", "routeName": "/heroAnimationApiA"},
+    {"title": "multiAnimationApi", "routeName": "/multiAnimationApi"},
+    {"title": "animatedSwitcherApi", "routeName": "/animatedSwitcherApi"},
+    {"title": "animatedWidgetsApi", "routeName": "/animatedWidgetsApi"},
+    {"title": "componentsApi", "routeName": "/componentsApi"},
   ];
 
   Widget _getPages(context, index) {
@@ -51,10 +61,11 @@ class _HomeState extends State<Home> {
     //ListView.builder 列表懒加载
     // ListView默认垂直排列，此时内部元素宽度失效，自动撑满，
     // 如果改为水平排列，则高度失效
-    return ListView.builder(
+    return Scrollbar(
+        child: ListView.builder(
       itemBuilder: _getPages,
       itemCount: _pageList.length,
-    );
+    ));
   }
 }
 

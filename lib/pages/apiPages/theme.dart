@@ -12,7 +12,7 @@ class _ThemeApiState extends State<ThemeApi> {
 
   @override
   Widget build(BuildContext context) {
-    ThemeData themeData = Theme.of(context);
+    // ThemeData themeData = Theme.of(context);
     return Theme(
         data: ThemeData(
             ////用于导航栏、FloatingActionButton的背景色等
